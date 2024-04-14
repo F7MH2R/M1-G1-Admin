@@ -1,8 +1,19 @@
+using M1_G1_Admin.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//restaurantConnect
+//Inyección de datos por la string de conexión
+builder.Services.AddDbContext<RestaurantContext>(
+    options => options.UseSqlServer(
+        builder.Configuration.GetConnectionString(
+            "restaurantConnect")
+        )
+    );
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
