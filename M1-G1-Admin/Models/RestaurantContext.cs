@@ -16,7 +16,7 @@ namespace M1_G1_Admin.Models
         public  DbSet<Platos> platos { get; set; }
         public DbSet<Promociones> promociones { get; set;}
         public DbSet<Estado> estado { get; set; }
-        public DbSet<Empleado> empleados { get; set; }
+        public DbSet<Empleado> empleado { get; set; }
 
     }
 }
