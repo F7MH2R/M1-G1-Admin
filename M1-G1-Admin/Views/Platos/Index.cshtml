@@ -4,62 +4,43 @@
     ViewData["Title"] = "Index";
 }
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.precio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.categoria)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.disponible)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.categoria_id)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.precio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.categoria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.disponible)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.categoria_id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.plato_id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.plato_id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.plato_id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped" style="color: white;">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.descripcion)</th>
+                <th>@Html.DisplayNameFor(model => model.precio)</th>
+                <th>@Html.DisplayNameFor(model => model.categoria)</th>
+                <th>@Html.DisplayNameFor(model => model.disponible)</th>
+                <th>@Html.DisplayNameFor(model => model.categoria_id)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="color: white;">@Html.DisplayFor(modelItem => item.nombre)</td>
+                    <td style="color: white;">@Html.DisplayFor(modelItem => item.descripcion)</td>
+                    <td style="color: white;">@Html.DisplayFor(modelItem => item.precio)</td>
+                    <td style="color: white;">@Html.DisplayFor(modelItem => item.categoria)</td>
+                    <td style="color: white;">@Html.DisplayFor(modelItem => item.disponible)</td>
+                    <td style="color: white;">@Html.DisplayFor(modelItem => item.categoria_id)</td>
+                    <td>
+                        <a class="action-link" asp-action="Edit" asp-route-id="@item.plato_id" style="color: green;"><i class="fas fa-pencil-alt" style="font-size: 20px;"></i> Editar</a> |
+                        <a class="action-link" asp-action="Details" asp-route-id="@item.plato_id" style="color: blue;"><i class="fas fa-info-circle" style="font-size: 24px;"></i> Detalles</a> |
+                        <a class="action-link" asp-action="Delete" asp-route-id="@item.plato_id" style="color: red;"><i class="fas fa-trash-alt" style="font-size: 28px;"></i> Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
