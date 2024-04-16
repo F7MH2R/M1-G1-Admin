@@ -2,7 +2,83 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-s...." crossorigin="anonymous" />
+    <style>
+        body {
+            background-color: #12100F; 
+        }
+
+        .container {
+            background-image: url(''); 
+            background-size: cover;
+            padding-top: 50px; 
+            padding-bottom: 20px; 
+            color: #12100F;
+        }
+
+        .icon {
+            margin: 20px;
+        }
+
+        .title-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .color-texto{
+            color: #FFFFFF;
+        }
+
+        .color-tema{
+            color: #9B2930;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center">
+            <img class="title-image" src="" alt="Imagen encima del texto">
+            <h1 class="display-5 color-tema">Dulce Sabor<h class="color-texto">®<h></h>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-3 icon color-texto">
+                <img src="@Url.Content("~/images/Combos.png")" alt="">
+                <a asp-controller="Empleado" asp-action="Index"> </a>
+                <p>Empleado</p>
+            </div>
+            <div class="col-md-3 icon color-texto">
+                <a asp-controller="Mesas" asp-action="Index"> </a>
+                <p>Mesas</p>
+            </div>
+            <div class="col-md-3 icon color-texto">
+                <a asp-controller="Platos" asp-action="Index"> </a>
+                <p>Platos</p>
+            </div>
+            <div class="col-md-3 icon color-texto">
+                <a asp-controller="Combos" asp-action="Index"> </a>
+                <p>Combos</p>
+            </div>
+            <div class="col-md-3 icon color-texto">
+                <a asp-controller="Promociones" asp-action="Index"> </a>
+                <p>Promociones</p>
+            </div>
+         
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
