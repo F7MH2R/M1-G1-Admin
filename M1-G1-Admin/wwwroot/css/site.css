@@ -43,5 +43,13 @@ footer {
     padding: 1rem;
 }
 
+.icono {
+    width: 30px;
+    padding: 5px;
+    border: 2px;
+    margin: 3px;
+}
 
-
+.list-group-item-action:focus, .list-group-item-action:hover {
+    color: #9B2930 !important;
+}
