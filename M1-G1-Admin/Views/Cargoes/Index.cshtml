@@ -3,33 +3,34 @@
 @{
     ViewData["Title"] = "Index";
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Crear Nuevo</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.tipo_cargo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.tipo_cargo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_cargo">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_cargo">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_cargo">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped" style="color: white;">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.tipo_cargo)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="color: white;">@Html.DisplayFor(modelItem => item.tipo_cargo)</td>
+                    <td>
+                        <a class="action-link" asp-action="Edit" asp-route-id="@item.id_cargo" style="color: green;"><i class="fas fa-pencil-alt" style="font-size: 20px;"></i> Editar</a> |
+                        <a class="action-link" asp-action="Details" asp-route-id="@item.id_cargo" style="color: blue;"><i class="fas fa-info-circle" style="font-size: 24px;"></i> Detalles</a> |
+                        <a class="action-link" asp-action="Delete" asp-route-id="@item.id_cargo" style="color: red;"><i class="fas fa-trash-alt" style="font-size: 28px;"></i> Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
