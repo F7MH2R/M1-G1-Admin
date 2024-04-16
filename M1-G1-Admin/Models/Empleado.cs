@@ -8,14 +8,14 @@ namespace M1_G1_Admin.Models
         public int id { get; set; }
         public string? nombre { get; set; }
         public string? dui { get; set; }
-        public string? fecha_nacimiento { get; set; }
+        public DateTime? fecha_nacimiento { get; set; }
         public string?  telefono { get; set; }
         public string? direccion { get; set; }
         public string? telefono_referencia { get; set; }
         public int cargo_id { get; set; }
         public int estado_id { get; set; }
         public decimal salario { get; set; }
-        public string? fecha_concentracion { get; set; }
+        public DateTime? fecha_contratacion { get; set; }
 
     }
 }
