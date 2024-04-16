@@ -26,6 +26,7 @@ body {
 :root {
     --bs-body-bg: #000;
     --bs-body-color: white;
+    --color-principal: #9B2930;
 }
 
 footer {
@@ -43,5 +44,13 @@ footer {
     padding: 1rem;
 }
 
+.icono {
+    width: 30px;
+    padding: 5px;
+    border: 2px;
+    margin: 3px;
+}
 
-
+.list-group-item-action:focus, .list-group-item-action:hover {
+    color: var(--color-principal) !important;
+}

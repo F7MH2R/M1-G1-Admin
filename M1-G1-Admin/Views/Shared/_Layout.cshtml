@@ -6,14 +6,13 @@
     <title>@ViewData["Title"] - M1_G1_Admin</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/M1_G1_Admin.styles.css" asp-append-version="true" />
 </head>
 
 <body class="bg-dark">
     <div class="d-flex">
         <div id="sidebar">
             <div class="p-2">
-                <a class="navbar-brand text-center text-light w-100 p-4 border-bottom"
+                <a class="navbar-brand text-center text-light w-100 p-4 border-bottom" style="color: #9B2930!important"
                    asp-controller="Home" asp-action="Index">
                     Dulce Sabor
                 </a>
@@ -24,31 +23,31 @@
                        class="list-group-item list-group-item-action bg-dark text-light"
                        asp-controller="Home" asp-action="Index"
                     >
-                        Inicio
+                        <img class="icono" src="@Url.Content("~/images/home.png")" alt="Inicio"/>Inicio
                     </a>
                     <a data-toggle="collapse" aria-expanded="false"
                        class="list-group-item list-group-item-action bg-dark text-light"
                     asp-controller="Empleado" asp-action="Index">
-                        Empleados
+                        <img class="icono" src="@Url.Content("~/images/user.png")" alt="Empleados"/>Empleados
                     </a>
                     <a class="list-group-item list-group-item-action bg-dark text-light"
                         asp-controller="Mesas" asp-action="Index">
-                        Mesas
+                        <img class="icono" src="@Url.Content("~/images/table.png")" alt="Mesas"/>Mesas
                     </a>
                     <a data-toggle="collapse" aria-expanded="false"
                        class="list-group-item list-group-item-action bg-dark text-light"
                        asp-controller="Platos" asp-action="Index">
-                       Platos
+                        <img class="icono" src="@Url.Content("~/images/dish.png")" alt="Platos"/>Platos
                     </a>
                     <a data-toggle="collapse" aria-expanded="false"
                        class="list-group-item list-group-item-action bg-dark text-light"
                     asp-controller="Combos" asp-action="Index">
-                        Combos
+                        <img class="icono" src="@Url.Content("~/images/combo.png")" alt="Combos"/>Combos
                     </a>
                     <a data-toggle="collapse" aria-expanded="false"
                        class="list-group-item list-group-item-action bg-dark text-light"
                        asp-controller="Promociones" asp-action="Index">
-                        Promociones
+                        <img class="icono" src="@Url.Content("~/images/sale.png")" alt="Promociones"/>Promociones
                     </a>
                 </div>
             </div>
@@ -76,7 +75,7 @@
     </div>
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - M1_G1_Admin - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - M1_G1_Admin - <a asp-area="" asp-controller="Home" asp-action="Privacy">Politica de privacidad</a>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
