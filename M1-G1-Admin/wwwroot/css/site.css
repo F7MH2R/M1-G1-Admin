@@ -26,6 +26,7 @@ body {
 :root {
     --bs-body-bg: #000;
     --bs-body-color: white;
+    --color-principal: #9B2930;
 }
 
 footer {
@@ -51,5 +52,5 @@ footer {
 }
 
 .list-group-item-action:focus, .list-group-item-action:hover {
-    color: #9B2930 !important;
+    color: var(--color-principal) !important;
 }
