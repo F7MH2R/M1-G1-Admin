@@ -3,76 +3,57 @@
 }
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"]</title>
+    <title>Bienvenido a Dulce Sabor</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-s...." crossorigin="anonymous" />
     <style>
         body {
-            background-color: #12100F; 
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #12100f;
         }
 
-        .container {
-            background-image: url(''); 
+        .container-fondo {
+            position: relative;
+            text-align: center;
+            width: 100%;
+            height: 100vh; 
+            background-image: url('@Url.Content("~/images/fondoDulceSabor.jpg")');
             background-size: cover;
-            padding-top: 50px; 
-            padding-bottom: 20px; 
-            color: #12100F;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        .icon {
-            margin: 20px;
+        .titulo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #9B2930, #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
         }
 
-        .title-image {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-        }
-
-        .color-texto{
+        .subtitulo {
+            font-size: 1rem;
+            margin-bottom: 40px;
             color: #FFFFFF;
         }
-
-        .color-tema{
-            color: #9B2930;
-        }
-
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="text-center">
-            <img class="title-image" src="" alt="Imagen encima del texto">
-            <h1 class="display-5 color-tema">Dulce Sabor<h class="color-texto">®<h></h>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-md-3 icon color-texto">
-                <img src="@Url.Content("~/images/Combos.png")" alt="">
-                <a asp-controller="Empleado" asp-action="Index"> </a>
-                <p>Empleado</p>
-            </div>
-            <div class="col-md-3 icon color-texto">
-                <a asp-controller="Mesas" asp-action="Index"> </a>
-                <p>Mesas</p>
-            </div>
-            <div class="col-md-3 icon color-texto">
-                <a asp-controller="Platos" asp-action="Index"> </a>
-                <p>Platos</p>
-            </div>
-            <div class="col-md-3 icon color-texto">
-                <a asp-controller="Combos" asp-action="Index"> </a>
-                <p>Combos</p>
-            </div>
-            <div class="col-md-3 icon color-texto">
-                <a asp-controller="Promociones" asp-action="Index"> </a>
-                <p>Promociones</p>
-            </div>
-         
+        <div class="container-fondo">
+            <h1 class="titulo">¡Bienvenido a Dulce Sabor!</h1>
+            <p class="subtitulo">Disfruta de nuestros deliciosos platillos</p>
         </div>
     </div>
 
@@ -81,4 +62,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
 
