@@ -4,11 +4,7 @@ namespace M1_G1_Admin.Models
 {
     public class RestaurantContext : DbContext
     {
-        public RestaurantContext(DbContextOptions<RestaurantContext> options) : base(options)
-        {
-
-
-        }
+        public RestaurantContext(DbContextOptions<RestaurantContext> options) : base(options){}
         public DbSet<Cargo> cargo { get; set; }
         public DbSet<Combos> combos { get; set; } 
         public DbSet<Categoria_Platos> categorias_platos { get; set; }
