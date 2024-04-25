@@ -9,9 +9,8 @@ namespace M1_G1_Admin.Models
         public string? nombre { get; set; }
         public string? descripcion { get; set; }
         public decimal? precio { get; set; }
-        public int disponible { get; set; }
+        public bool? disponible { get; set; }
         public int categoria_id { get; set; }
-
-
+        public bool? es_bebida { get; set; }
     }
 }

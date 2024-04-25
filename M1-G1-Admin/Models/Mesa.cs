@@ -8,6 +8,6 @@ namespace M1_G1_Admin.Models
         public int id { get; set; }
         public int numero_asientos { get; set; }
         public int numero_mesa { get; set; }
-        public int estado_mesa { get; set; }
+        public bool? estado_mesa { get; set; }
     }
 }

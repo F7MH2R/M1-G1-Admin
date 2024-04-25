@@ -13,7 +13,7 @@ namespace M1_G1_Admin.Models
         public string? direccion { get; set; }
         public string? telefono_referencia { get; set; }
         public int cargo_id { get; set; }
-        public int estado_id { get; set; }
+        public bool disponible { get; set; }
         public decimal salario { get; set; }
         public DateTime? fecha_contratacion { get; set; }
 

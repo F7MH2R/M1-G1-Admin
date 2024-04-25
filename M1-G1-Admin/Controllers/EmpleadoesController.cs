@@ -53,7 +53,7 @@ namespace M1_G1_Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,nombre,dui,fecha_nacimiento,telefono,direccion,telefono_referencia,cargo_id,estado_id,salario,fecha_contratacion")] Empleado empleado)
+        public async Task<IActionResult> Create([Bind("id,nombre,dui,fecha_nacimiento,telefono,direccion,telefono_referencia,cargo_id,disponible,salario,fecha_contratacion")] Empleado empleado)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace M1_G1_Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,nombre,dui,fecha_nacimiento,telefono,direccion,telefono_referencia,cargo_id,estado_id,salario,fecha_contratacion")] Empleado empleado)
+        public async Task<IActionResult> Edit(int id, [Bind("id,nombre,dui,fecha_nacimiento,telefono,direccion,telefono_referencia,cargo_id,disponible,salario,fecha_contratacion")] Empleado empleado)
         {
             if (id != empleado.id)
             {
