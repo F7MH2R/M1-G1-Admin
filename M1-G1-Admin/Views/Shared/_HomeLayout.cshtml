@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - M1_G1_Admin</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body class="bg-dark">
+    <div class="d-flex">
+        <div class="content w-100">
+            <section class="p-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <div class="row text">
+                <div class="col">CARLOS LEONEL CASTANEDA HERNANDEZ</div>
+                <div class="col">LAURA LORENA MEDINA MONTERO</div>
+                <div class="col">IVONNE ESMERALDA DURÁN DÍAZ</div>
+            </div>
+            <div class="row">
+                <div class="col">ANDY WILLIAM GUEVARA ROLDAN</div>
+                <div class="col"></div>
+                <div class="col">FERNANDO HERIBERTO MUSTO RAMÍREZ</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    &copy; 2024 - M1_G1_Admin - <a asp-area="" asp-controller="Home" asp-action="Privacy">Politica de privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
