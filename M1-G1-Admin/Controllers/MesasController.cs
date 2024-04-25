@@ -53,7 +53,7 @@ namespace M1_G1_Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,numero_asientos,numero_mesa")] Mesa mesa)
+        public async Task<IActionResult> Create([Bind("id,numero_asientos,numero_mesa,estado_mesa")] Mesa mesa)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace M1_G1_Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,numero_asientos,numero_mesa")] Mesa mesa)
+        public async Task<IActionResult> Edit(int id, [Bind("id,numero_asientos,numero_mesa,estado_mesa")] Mesa mesa)
         {
             if (id != mesa.id)
             {

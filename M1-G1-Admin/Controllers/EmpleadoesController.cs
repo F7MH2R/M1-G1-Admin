@@ -9,22 +9,22 @@ using M1_G1_Admin.Models;
 
 namespace M1_G1_Admin.Controllers
 {
-    public class EmpleadoController : Controller
+    public class EmpleadoesController : Controller
     {
         private readonly RestaurantContext _context;
 
-        public EmpleadoController(RestaurantContext context)
+        public EmpleadoesController(RestaurantContext context)
         {
             _context = context;
         }
 
-        // GET: Empleado
+        // GET: Empleadoes
         public async Task<IActionResult> Index()
         {
             return View(await _context.empleado.ToListAsync());
         }
 
-        // GET: Empleado/Details/5
+        // GET: Empleadoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -42,13 +42,13 @@ namespace M1_G1_Admin.Controllers
             return View(empleado);
         }
 
-        // GET: Empleado/Create
+        // GET: Empleadoes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Empleado/Create
+        // POST: Empleadoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -64,7 +64,7 @@ namespace M1_G1_Admin.Controllers
             return View(empleado);
         }
 
-        // GET: Empleado/Edit/5
+        // GET: Empleadoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,7 +80,7 @@ namespace M1_G1_Admin.Controllers
             return View(empleado);
         }
 
-        // POST: Empleado/Edit/5
+        // POST: Empleadoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -115,7 +115,7 @@ namespace M1_G1_Admin.Controllers
             return View(empleado);
         }
 
-        // GET: Empleado/Delete/5
+        // GET: Empleadoes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -133,7 +133,7 @@ namespace M1_G1_Admin.Controllers
             return View(empleado);
         }
 
-        // POST: Empleado/Delete/5
+        // POST: Empleadoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
