@@ -94,8 +94,8 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripcion</th>
                             <th scope="col">Precio</th>
-                            <th scope="col">Disponible</th>
-                            <th scope ="col" class="text-center">Acciones</th>
+                        <th scope="col">Disponible</th>
+                        <th scope="col" class="text-center">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -105,7 +105,7 @@
                                 <td>@Html.DisplayFor(modelItem => item.nombre)</td>
                                 <td>@Html.DisplayFor(modelItem => item.descripcion)</td>
                                 <td>@Html.DisplayFor(modelItem => item.precio)</td>
-                                <td>@Html.DisplayFor(modelItem => item.disponible)</td>
+                            <td>@Html.DisplayFor(modelItem => item.disponible)</td>
                             <td class="action-links">
                                 <a asp-action="Edit" asp-route-id="@item.combo_id" class="btn btn-edit">Editar</a>
                                 <a asp-action="Details" asp-route-id="@item.combo_id" class="btn btn-details">Detalles</a>

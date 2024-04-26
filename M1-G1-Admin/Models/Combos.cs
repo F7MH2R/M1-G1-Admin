@@ -11,7 +11,7 @@ namespace M1_G1_Admin.Models
         [Display(Name = "Precio")]
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = true)]
         public decimal? precio { get; set; }
-        public int? disponible { get; set; }
+        public bool? disponible { get; set; }
 
 
 
