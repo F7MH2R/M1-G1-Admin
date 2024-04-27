@@ -93,7 +93,6 @@
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripcion</th>
-                        <th scope="col">Precio</th>
                         <th scope="col">Descuento</th>
                         <th scope="col">Fecha Inicio</th>
                         <th scope="col">Fecha Fin</th>
@@ -109,6 +108,7 @@
             <td>@Html.DisplayFor(modelItem => item.fecha_inicio)</td>
             <td>@Html.DisplayFor(modelItem => item.fecha_fin)</td>
                             <td class="action-links">
+                                <a asp-action="Add" asp-route-id="@item.promocion_id" class="btn btn-edit">Agregar Plato</a>
                                 <a asp-action="Edit" asp-route-id="@item.promocion_id" class="btn btn-edit">Editar</a>
                                 <a asp-action="Details" asp-route-id="@item.promocion_id" class="btn btn-details">Detalles</a>
                                 <a asp-action="Delete" asp-route-id="@item.promocion_id" class="btn btn-delete">Eliminar</a>
