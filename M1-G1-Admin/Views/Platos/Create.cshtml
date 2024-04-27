@@ -48,11 +48,11 @@
                 <label asp-for="es_bebida" class="control-label"></label>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" asp-for="es_bebida" value="true" name="es_bebida" />
-                    <label class="form-check-label">Activo</label>
+                    <label class="form-check-label">Si</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" asp-for="es_bebida" value="false" name="es_bebida" />
-                    <label class="form-check-label">Despedido</label>
+                    <label class="form-check-label">No</label>
                 </div>
                 <span asp-validation-for="es_bebida" class="text-danger"></span>
             </div>

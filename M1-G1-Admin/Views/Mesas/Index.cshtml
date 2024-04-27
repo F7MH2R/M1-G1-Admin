@@ -93,7 +93,7 @@
                     <tr>
                         <th scope="col">Numero de Asientos</th>
                         <th scope="col">Numero de Mesa</th>
-                        <th scope="col">Estado de Mesa</th>
+                        <th scope="col">Disponibilidad</th>
                         <th scope="col" class="text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -102,7 +102,7 @@
         <tr>
             <td>@Html.DisplayFor(modelItem => item.numero_asientos)</td>
             <td>@Html.DisplayFor(modelItem => item.numero_mesa)</td>
-            <td>@Html.DisplayFor(modelItem => item.estado_mesa)</td>
+                            <td>@Html.DisplayFor(modelItem => item.estado_mesa)</td>
                             <td class="action-links">
                                 <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-edit">Editar</a>
                                 <a asp-action="Details" asp-route-id="@item.id" class="btn btn-details">Detalles</a>
