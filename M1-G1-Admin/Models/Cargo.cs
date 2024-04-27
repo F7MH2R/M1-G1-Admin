@@ -6,6 +6,7 @@ namespace M1_G1_Admin.Models
     {
         [Key] 
         public int id_cargo { get; set; }
+        [Display(Name = "Tipo de cargo")]
         public string? tipo_cargo { get; set; }
 
     }
