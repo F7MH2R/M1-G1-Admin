@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using M1_G1_Admin.Models;
+using M1_G1_Admin.Pages;
 
 namespace M1_G1_Admin.Controllers
 {
@@ -146,6 +147,57 @@ namespace M1_G1_Admin.Controllers
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        // GET: Combos/Add
+        public async Task<IActionResult> Add(int id)
+        {
+            var combo = await _context.combos.FindAsync(id);
+            
+            if (combo == null)
+                return NotFound();
+            var platosCombo = await _context.combos_platos
+                .Where(combo => combo.combo_id == id)
+                .Select(combo => combo.plato_id)
+                .ToListAsync();
+ 
+            AgregarPlatos agregarPlatos = new AgregarPlatos();
+            agregarPlatos.combo = combo;
+            
+            agregarPlatos.platos = await _context
+                .platos
+                .Where(pt => !platosCombo.Contains(pt.plato_id))
+                .ToListAsync();
+
+            agregarPlatos.platosXCombo = await _context
+                .platos
+                .Where(p => platosCombo.Contains(p.plato_id))
+                .ToListAsync();
+            
+            return View(agregarPlatos);
+        }
+
+        [HttpPost, ActionName("AddPlato")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddPlato(int plato, int idCombo)
+        {
+            
+            try
+            {
+                CombosPlatos combPlato = new CombosPlatos();
+                combPlato.combo_id = idCombo;
+                combPlato.plato_id = plato;
+
+                _context.combos_platos.Add(combPlato);
+                await _context.SaveChangesAsync();
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
+            return RedirectToAction(nameof(Add), new { id = idCombo });
         }
 
         private bool CombosExists(int id)
