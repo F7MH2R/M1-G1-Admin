@@ -106,9 +106,9 @@
             <td>@Html.DisplayFor(modelItem => item.nombre)</td>
             <td>@Html.DisplayFor(modelItem => item.descripcion)</td>
             <td>@Html.DisplayFor(modelItem => item.precio)</td>
-            <td>@Html.DisplayFor(modelItem => item.disponible)</td>
-            <td>@Html.DisplayFor(modelItem => item.categoria_id)</td>
-            <td>@Html.DisplayFor(modelItem => item.es_bebida)</td>
+                            <td>@(item.disponible.HasValue ? (item.disponible.HasValue && item.disponible.Value ? "Si" : "No") : "No disponible")</td>
+                            <td>@Html.DisplayFor(modelItem => item.categoria_id)</td>
+                            <td>@(item.es_bebida.HasValue ? (item.es_bebida.HasValue && item.es_bebida.Value ? "Si" : "No") : "No disponible")</td>
                             <td class="action-links">
                                 <a asp-action="Edit" asp-route-id="@item.plato_id" class="btn btn-edit">Editar</a>
                                 <a asp-action="Details" asp-route-id="@item.plato_id" class="btn btn-details">Detalles</a>

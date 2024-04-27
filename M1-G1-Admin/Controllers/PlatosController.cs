@@ -45,6 +45,8 @@ namespace M1_G1_Admin.Controllers
         // GET: Platos/Create
         public IActionResult Create()
         {
+            ViewBag.Categoria = _context.categorias_platos.ToList();
+
             return View();
         }
 
@@ -77,6 +79,7 @@ namespace M1_G1_Admin.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Categoria = await _context.categorias_platos.ToListAsync();
             return View(platos);
         }
 

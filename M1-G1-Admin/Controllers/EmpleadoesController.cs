@@ -44,7 +44,9 @@ namespace M1_G1_Admin.Controllers
 
         // GET: Empleadoes/Create
         public IActionResult Create()
+
         {
+            ViewBag.Cargos = _context.cargo.ToList();
             return View();
         }
 
@@ -77,6 +79,8 @@ namespace M1_G1_Admin.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Cargos = await _context.cargo.ToListAsync();
+
             return View(empleado);
         }
 

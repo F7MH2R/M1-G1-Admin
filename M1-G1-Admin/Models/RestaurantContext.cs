@@ -13,5 +13,14 @@ namespace M1_G1_Admin.Models
         public DbSet<Promociones> promociones { get; set;}
         public DbSet<Empleado> empleado { get; set; }
 
+        public DbSet<CombosPlatos> combos_platos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<CombosPlatos>()
+                .HasKey(entidad => new { entidad.combo_id, entidad.plato_id });
+        }
+
     }
 }

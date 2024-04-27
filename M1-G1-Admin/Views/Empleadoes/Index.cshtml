@@ -114,8 +114,8 @@
             <td>@Html.DisplayFor(modelItem => item.direccion)</td>
             <td>@Html.DisplayFor(modelItem => item.telefono_referencia)</td>
             <td>@Html.DisplayFor(modelItem => item.cargo_id)</td>
-            <td>@Html.DisplayFor(modelItem => item.disponible)</td>
-            <td>@Html.DisplayFor(modelItem => item.salario)</td>
+                            <td>@(item.disponible ? "Activo" : "Despedido")</td>
+                            <td>@Html.DisplayFor(modelItem => item.salario)</td>
             <td>@Html.DisplayFor(modelItem => item.fecha_contratacion)</td>
                             <td class="action-links">
                                 <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-edit">Editar</a>
