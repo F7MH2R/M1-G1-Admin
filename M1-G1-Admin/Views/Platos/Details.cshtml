@@ -32,7 +32,7 @@
             @Html.DisplayNameFor(model => model.disponible)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.disponible)
+            <td>@(Model.disponible.HasValue ? (Model.disponible.HasValue && Model.disponible.Value ? "Si" : "No") : "No disponible")</td>
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.categoria_id)
@@ -44,7 +44,7 @@
             @Html.DisplayNameFor(model => model.es_bebida)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.es_bebida)
+            <td>@(Model.es_bebida.HasValue ? (Model.es_bebida.HasValue && Model.es_bebida.Value ? "Si" : "No") : "No disponible")</td>
         </dd>
     </dl>
 </div>
