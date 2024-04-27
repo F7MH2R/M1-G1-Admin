@@ -1,0 +1,83 @@
+﻿@model M1_G1_Admin.Pages.AgregarPlatos
+@{
+    ViewData["Title"] = "Agregar Plato al combo";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a Dulce Sabor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.cdnfonts.com/css/open-sans" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        .table {
+            --bs-table-striped-color: white;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center mb-4">Agregar platos al combo</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">Nombre del combo:</div>
+            <div class="col-8">@Model.combo.nombre - @Model.combo.descripcion</div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="table-container">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>
+                                    Plato
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var plato in Model.platosXCombo)
+                            {
+                                <tr>
+                                    <td>@plato.nombre</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <form method="post" asp-action="AddPlato" asp-controller="Combos">
+                <input hidden asp-for="@Model.combo.combo_id" name="idCombo" />
+                <div class="col-3">
+                    Agregar plato:
+                </div>
+                <div class="col-5">
+                    <select id="plato" class="form-select" name="plato">
+                        @foreach(var plato in Model.platos)
+                        {
+                            <option value="@plato.plato_id">@plato.nombre</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-4">
+                    <button type="submit" class="btn btn-success">Agregar</button>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col text-end">
+                <a asp-action="Index" asp-controller="Combos">Regresar a Combos</a>
+            </div>
+        </div>
+    </div>
+</body>
