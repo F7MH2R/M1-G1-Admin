@@ -25,20 +25,17 @@
         </div>
         <div class="row">
             <div class="col-6 mt-4">
-                <select class="form-control" style="color: black;">
-                    @{
-                        var selected1 = Model.promocion_id == 1 ? "selected" : "";
-                    }
-                    @foreach (var plato in Model.listadeplatos)
-                    {
-                        <option value="@plato.plato_id" selected="@selected1">@plato.nombre</option>
-                    }
-                </select>
         </div>
         <div class="row">
                 <div class="col-3">
-                    <form methopost="" asp-action="Agregar">
-                        <input type="hidden" asp-for="promocion_id" />
+                    <form method="post" asp-action="Agregar" asp-controller="Promociones">
+                        <input type="hidden" asp-for="@Model.promocion_id" name="promoId" />
+                        <select name="platoId" class="form-control" style="color: black;">
+                            @foreach (var plato in Model.listadeplatos)
+                            {
+                                <option value="@plato.plato_id">@plato.nombre</option>
+                            }
+                        </select>
                         <input type="submit" value="Agregar" class="btn btn-primary mt-3" /> |
                     </form>
                 </div>

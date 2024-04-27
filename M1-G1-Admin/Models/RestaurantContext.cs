@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using M1_G1_Admin.Pages;
+using Microsoft.EntityFrameworkCore;
 
 namespace M1_G1_Admin.Models
 {
@@ -13,6 +14,7 @@ namespace M1_G1_Admin.Models
         public DbSet<Promociones> promociones { get; set;}
         public DbSet<Empleado> empleado { get; set; }
 
+        public DbSet<PromocionesPlatos> promociones_platos { get; set; }
         public DbSet<CombosPlatos> combos_platos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -20,6 +22,8 @@ namespace M1_G1_Admin.Models
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<CombosPlatos>()
                 .HasKey(entidad => new { entidad.combo_id, entidad.plato_id });
+            modelBuilder.Entity<PromocionesPlatos>()
+               .HasKey(entidad => new { entidad.promocion_id, entidad.plato_id });
         }
 
     }

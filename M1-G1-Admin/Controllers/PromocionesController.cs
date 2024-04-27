@@ -26,7 +26,7 @@ namespace M1_G1_Admin.Controllers
         }
 
 
-        /// 
+        /// Add
          public async Task<IActionResult> Add(int id)
         {
             var promociones = await _context.promociones.FindAsync(id);
@@ -44,9 +44,28 @@ namespace M1_G1_Admin.Controllers
                 listadeplatos = platos
             };
 
-            return View("Add", mostrarPlatoModel);
+            return View(mostrarPlatoModel);
          }
 
+        //
+        [HttpPost, ActionName("Agregar")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Agregar(int platoId, int promoId)
+        {
+            try
+            {
+                PromocionesPlatos promocionesPlatos = new PromocionesPlatos();
+                promocionesPlatos.plato_id = platoId; 
+                promocionesPlatos.promocion_id = promoId;
+                _context.promociones_platos.Add(promocionesPlatos);
+                await _context.SaveChangesAsync();
+
+            }catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            return RedirectToAction(nameof(Add), new {id = promoId});
+        }
         // GET: Promociones/Details/5
         public async Task<IActionResult> Details(int? id)
         {
