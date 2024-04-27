@@ -4,54 +4,118 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Platos</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.descripcion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.descripcion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.precio)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.precio)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.disponible)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.disponible)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.categoria_id)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.categoria_id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.es_bebida)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.es_bebida)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="plato_id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
+        .container {
+            margin-top: 50px;
+        }
+
+        .form-container {
+            background-color: #333;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+            .btn-danger:hover {
+                background-color: #c82333;
+                border-color: #bd2130;
+            }
+
+        .back-link {
+            margin-top: 20px;
+            display: block;
+            color: #007bff;
+            text-align: center; /* Centrar el enlace */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="details-container">
+                    <h1 class="text-center mb-4">Detalles del Plato</h1>
+
+                    <div>
+                        <h4>Plato</h4>
+                        <hr />
+
+                        <dl class="row">
+                            <dt class="col-sm-3">
+                                <!-- Uso de un ancho mayor para etiquetas -->
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </dt>
+                            <dd class="col-sm-9">
+                                <!-- Ancho restante para valores -->
+                                @Html.DisplayFor(model => model.nombre)
+                            </dd>
+
+                            <dt class="col-sm-3">
+                                @Html.DisplayNameFor(model => model.descripcion)
+                            </dt>
+                            <dd class="col-sm-9">
+                                @Html.DisplayFor(model => model.descripcion)
+                            </dd>
+
+                            <dt class="col-sm-3">
+                                @Html.DisplayNameFor(model => model.precio)
+                            </dt>
+                            <dd class="col-sm-9">
+                                @Html.DisplayFor(model => model.precio)
+                            </dd>
+
+                            <dt class="col-sm-3">
+                                @Html.DisplayNameFor(model => model.disponible)
+                            </dt>
+                            <dd class="col-sm-9">
+                                @(Model.disponible.HasValue && Model.disponible.Value ? "Sí" : "No")
+                            </dd>
+
+                            <dt class="col-sm-3">
+                                @Html.DisplayNameFor(model => model.categoria_id)
+                            </dt>
+                            <dd class="col-sm-9">
+                                @Html.DisplayFor(model => model.categoria_id)
+                            </dd>
+
+                            <dt class="col-sm-3">
+                                @Html.DisplayNameFor(model => model.es_bebida)
+                            </dt>
+                            <dd class="col-sm-9">
+                                @(Model.es_bebida.HasValue && Model.es_bebida.Value ? "Sí" : "No")
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div class="actions mt-3">
+                        <!-- Sección para acciones -->
+                        <a asp-action="Edit" asp-route-id="@Model.plato_id" class="btn btn-outline-primary">Editar</a>
+                        <a asp-action="Index" class="btn btn-outline-secondary">Volver a la lista</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoF" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+cg6Lvb3cbv9/9Wraf61zZMLJmCCMwp5Pb+iqOvya2lsF9b7hCiN5Xr6jJ" crossorigin="anonymous"></script>
+</body>
+</html>
