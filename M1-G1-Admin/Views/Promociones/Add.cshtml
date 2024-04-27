@@ -1,0 +1,49 @@
+﻿@model M1_G1_Admin.Pages.MostrarPlato
+
+@{
+    ViewData["Title"] = "Mostrar Plato";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a Dulce Sabor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.cdnfonts.com/css/open-sans" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+    <div class="row">
+        <div class="col">
+                <h1 class="text-center mb-4" style="color: white;">Agregar Plato A La Promoción</h1>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-6" style="color: white;">Plato</div>
+        </div>
+        <div class="row">
+            <div class="col-6 mt-4">
+        </div>
+        <div class="row">
+                <div class="col-3">
+                    <form method="post" asp-action="Agregar" asp-controller="Promociones">
+                        <input type="hidden" asp-for="@Model.promocion_id" name="promoId" />
+                        <select name="platoId" class="form-control" style="color: black;">
+                            @foreach (var plato in Model.listadeplatos)
+                            {
+                                <option value="@plato.plato_id">@plato.nombre</option>
+                            }
+                        </select>
+                        <input type="submit" value="Agregar" class="btn btn-primary mt-3" /> |
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+
