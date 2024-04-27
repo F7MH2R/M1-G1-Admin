@@ -92,10 +92,10 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Descripcion</th>
+               
                         <th scope="col">Precio</th>
                         <th scope="col">Disponible</th>
-                        <th scope="col">Categoria</th>
+                   
                         <th scope="col">Bebida</th>
                         <th scope="col" class="text-center">Acciones</th>
                     </tr>
@@ -104,10 +104,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>@Html.DisplayFor(modelItem => item.nombre)</td>
-            <td>@Html.DisplayFor(modelItem => item.descripcion)</td>
+          
             <td>@Html.DisplayFor(modelItem => item.precio)</td>
                             <td>@(item.disponible.HasValue ? (item.disponible.HasValue && item.disponible.Value ? "Si" : "No") : "No disponible")</td>
-                            <td>@Html.DisplayFor(modelItem => item.categoria_id)</td>
+                
                             <td>@(item.es_bebida.HasValue ? (item.es_bebida.HasValue && item.es_bebida.Value ? "Si" : "No") : "No disponible")</td>
                             <td class="action-links">
                                 <a asp-action="Edit" asp-route-id="@item.plato_id" class="btn btn-edit">Editar</a>

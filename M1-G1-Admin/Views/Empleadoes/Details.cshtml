@@ -40,75 +40,69 @@
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-10">
                 <div class="details-container">
                     <h1 class="text-center mb-4">Detalles del Empleado</h1>
                     <div>
                         <h4>Empleado</h4>
                         <hr />
-                        <dl class="row">
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.nombre)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.nombre)
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.dui)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.dui)
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.fecha_nacimiento)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.fecha_nacimiento)
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.telefono)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.telefono)
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.direccion)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.direccion)
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.telefono_referencia)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.telefono_referencia)
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.cargo_id)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.cargo_id)
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.disponible)
-                            </dt>
-                            <dd class="col-sm-10">
-                                <td>@(Model.disponible ? "Activo" : "Despedido")</td>
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.salario)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.salario)
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.fecha_contratacion)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.fecha_contratacion)
-                            </dd>
-                        </dl>
+                        <div class="container">
+                            <div class="row">
+                                <!-- Primera fila de dos columnas -->
+                                <div class="col-md-6">
+                                    <!-- Columna izquierda -->
+                                    <dl class="row">
+                                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.nombre)</dt>
+                                        <dd class="col-sm-8">@Html.DisplayFor(model => model.nombre)</dd>
+
+                                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.dui)</dt>
+                                        <dd class="col-sm-8">@Html.DisplayFor(model => model.dui)</dd>
+
+                                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.fecha_nacimiento)</dt>
+                                        <dd class="col-sm-8">@Html.DisplayFor(model => model.fecha_nacimiento)</dd>
+
+                                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.telefono)</dt>
+                                        <dd class="col-sm-8">@Html.DisplayFor(model => model.telefono)</dd>
+                                    </dl>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <!-- Columna derecha -->
+                                    <dl class="row">
+                                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.direccion)</dt>
+                                        <dd class="col-sm-8">@Html.DisplayFor(model => model.direccion)</dd>
+
+                                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.telefono_referencia)</dt>
+                                        <dd class="col-sm-8">@Html.DisplayFor(model => model.telefono_referencia)</dd>
+
+                                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.cargo_id)</dt>
+                                        <dd class="col-sm-8">@Html.DisplayFor(model => model.cargo_id)</dd>
+
+                                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.disponible)</dt>
+                                        <td>@(Model.disponible ? "Activo" : "Despedido")</td>
+                                    </dl>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Segunda fila para más detalles -->
+                                <div class="col-md-6">
+                                    <dl class="row">
+                                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.salario)</dt>
+                                        <dd class="col-sm-8">@Html.DisplayFor(model => model.salario)</dd>
+                                    </dl>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <dl class="row">
+                                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.fecha_contratacion)</dt>
+                                        <dd class="col-sm-8">@Html.DisplayFor(model => model.fecha_contratacion)</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                     <div>
                         <a asp-action="Edit" asp-route-id="@Model?.id" class="btn btn-primary">Editar</a> |
                         <a asp-action="Index" class="btn btn-primary">Volver a la Lista</a>

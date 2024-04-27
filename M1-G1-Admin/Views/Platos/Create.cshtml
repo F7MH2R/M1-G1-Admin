@@ -47,62 +47,88 @@
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="form-container">
                     <h1 class="text-center mb-4">Crear Plato</h1>
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                <input asp-for="nombre" class="form-control" />
-                <span asp-validation-for="nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                            <label for="descripcion">Descripcion</label>
-                <input asp-for="descripcion" class="form-control" />
-                <span asp-validation-for="descripcion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                            <label for="precio">Precio</label>
-                <input asp-for="precio" class="form-control" />
-                <span asp-validation-for="precio" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+                        <!-- Primera fila -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- Primera columna -->
+                                <div class="form-group">
+                                    <label asp-for="nombre" class="control-label">Nombre</label>
+                                    <input asp-for="nombre" class="form-control" />
+                                    <span asp-validation-for="nombre" class="text-danger"></span>
+                                </div>
 
-                <label asp-for="disponible" class="control-label"></label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" asp-for="disponible" value="true" name="disponible" />
-                    <label class="form-check-label">Si</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" asp-for="disponible" value="false" name="disponible" />
-                    <label class="form-check-label">No</label>
-                </div>
-                <span asp-validation-for="disponible" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="categoria_id" class="control-label">Categoria</label>
-                @Html.DropDownListFor(model => model.categoria_id, new SelectList(ViewBag.Categoria, "categoria_id", "nombre"), "Selecciona una categoria", new { @class = "form-control" })
-                <span asp-validation-for="categoria_id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="es_bebida" class="control-label"></label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" asp-for="es_bebida" value="true" name="es_bebida" />
-                    <label class="form-check-label">Si</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" asp-for="es_bebida" value="false" name="es_bebida" />
-                    <label class="form-check-label">No</label>
-                </div>
-                          
-            </div>
+                                <div class="form-group">
+                                    <label asp-for="precio" class="control-label">Precio</label>
+                                    <input asp-for="precio" class="form-control" />
+                                    <span asp-validation-for="precio" class="text-danger"></span>
+                                </div>
+                            </div>
 
-                        <button type="submit" class="btn btn-primary btn-block">Crear</button>
+                            <div class="col-md-6">
+                                <!-- Segunda columna -->
+                                <div class="form-group">
+                                    <label asp-for="descripcion" class="control-label">Descripción</label>
+                                    <input asp-for="descripcion" class="form-control" />
+                                    <span asp-validation-for="descripcion" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="categoria_id" class="control-label">Categoría</label>
+                                    @Html.DropDownListFor(model => model.categoria_id, new SelectList(ViewBag.Categoria, "categoria_id", "nombre"), "Selecciona una categoría", new { @class = "form-control" })
+                                    <span asp-validation-for="categoria_id" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Segunda fila -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- Primera columna -->
+                                <div class="form-group">
+                                    <label asp-for="disponible" class="control-label">Disponible</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" asp-for="disponible" value="true" />
+                                        <label class="form-check-label">Sí</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" asp-for="disponible" value="false" />
+                                        <label class="form-check-label">No</label>
+                                    </div>
+                                    <span asp-validation-for="disponible" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <!-- Segunda columna -->
+                                <div class="form-group">
+                                    <label asp-for="es_bebida" class="control-label">Es Bebida</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" asp-for="es_bebida" value="true" />
+                                        <label class="form-check-label">Sí</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" asp-for="es_bebida" value="false" />
+                                        <label class="form-check-label">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <!-- Botón de envío -->
+                            <button type="submit" class="btn btn-primary btn-block">Crear</button>
+                        </div>
                     </form>
-                    <a asp-action="Index" class="back-link">Back to List</a>
+
+                    <a asp-action="Index" class="back-link text-center">Volver a la Lista</a> <!-- Enlace para volver -->
                 </div>
+
             </div>
         </div>
     </div>

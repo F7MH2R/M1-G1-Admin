@@ -39,56 +39,68 @@
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="details-container">
                     <h1 class="text-center mb-4">Detalles del Plato</h1>
+
                     <div>
-                        <h4>Platos</h4>
+                        <h4>Plato</h4>
                         <hr />
+
                         <dl class="row">
-                            <dt class="col-sm-2">
+                            <dt class="col-sm-3">
+                                <!-- Uso de un ancho mayor para etiquetas -->
                                 @Html.DisplayNameFor(model => model.nombre)
                             </dt>
-                            <dd class="col-sm-10">
+                            <dd class="col-sm-9">
+                                <!-- Ancho restante para valores -->
                                 @Html.DisplayFor(model => model.nombre)
                             </dd>
-                            <dt class="col-sm-2">
+
+                            <dt class="col-sm-3">
                                 @Html.DisplayNameFor(model => model.descripcion)
                             </dt>
-                            <dd class="col-sm-10">
+                            <dd class="col-sm-9">
                                 @Html.DisplayFor(model => model.descripcion)
                             </dd>
-                            <dt class="col-sm-2">
+
+                            <dt class="col-sm-3">
                                 @Html.DisplayNameFor(model => model.precio)
                             </dt>
-                            <dd class="col-sm-10">
+                            <dd class="col-sm-9">
                                 @Html.DisplayFor(model => model.precio)
                             </dd>
-                            <dt class="col-sm-2">
+
+                            <dt class="col-sm-3">
                                 @Html.DisplayNameFor(model => model.disponible)
                             </dt>
-                            <dd class="col-sm-10">
-                                <td>@(Model.disponible.HasValue ? (Model.disponible.HasValue && Model.disponible.Value ? "Si" : "No") : "No disponible")</td>
+                            <dd class="col-sm-9">
+                                @(Model.disponible.HasValue && Model.disponible.Value ? "Sí" : "No")
                             </dd>
-                            <dt class="col-sm-2">
+
+                            <dt class="col-sm-3">
                                 @Html.DisplayNameFor(model => model.categoria_id)
                             </dt>
-                            <dd class="col-sm-10">
+                            <dd class="col-sm-9">
                                 @Html.DisplayFor(model => model.categoria_id)
                             </dd>
-                            <dt class="col-sm-2">
+
+                            <dt class="col-sm-3">
                                 @Html.DisplayNameFor(model => model.es_bebida)
                             </dt>
-                            <dd class="col-sm-10">
-                                <td>@(Model.es_bebida.HasValue ? (Model.es_bebida.HasValue && Model.es_bebida.Value ? "Si" : "No") : "No disponible")</td>
+                            <dd class="col-sm-9">
+                                @(Model.es_bebida.HasValue && Model.es_bebida.Value ? "Sí" : "No")
                             </dd>
                         </dl>
                     </div>
-                    <div>
-                        <a asp-action="Edit" asp-route-id="@Model?.plato_id" class="btn btn-primary btn-block">Editar</a>
-                        <a asp-action="Index" class="back-link">Volver a la lista</a>
+
+                    <div class="actions mt-3">
+                        <!-- Sección para acciones -->
+                        <a asp-action="Edit" asp-route-id="@Model.plato_id" class="btn btn-outline-primary">Editar</a>
+                        <a asp-action="Index" class="btn btn-outline-secondary">Volver a la lista</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

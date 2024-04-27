@@ -91,42 +91,32 @@
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Dui</th>
-                        <th scope="col">Fecha de Nacimiento</th>
-                        <th scope="col">Telefono</th>
-                        <th scope="col">Direccion</th>
-                        <th scope="col">Telefono de Referencia</th>
-                        <th scope="col">Cargo ID</th>
-                        <th scope="col">Disponible</th>
-                        <th scope="col">Salario</th>
-                        <th scope="col">Fecha de Contratacion</th>
-                        <th scope="col" class="text-center">Acciones</th>
+                        <th scope="col" style="width: 25%;">Nombre</th> <!-- Ancho relativo -->
+                        <th scope="col" style="width: 15%;">DUI</th> <!-- Ancho relativo -->
+                        <th scope="col" style="width: 15%;">Disponible</th>
+                        <th scope="col" style="width: 20%;">Salario</th> <!-- Ancho relativo -->
+                        <th scope="col" style="width: 25%;" class="text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.nombre)</td>
-            <td>@Html.DisplayFor(modelItem => item.dui)</td>
-            <td>@Html.DisplayFor(modelItem => item.fecha_nacimiento)</td>
-            <td>@Html.DisplayFor(modelItem => item.telefono)</td>
-            <td>@Html.DisplayFor(modelItem => item.direccion)</td>
-            <td>@Html.DisplayFor(modelItem => item.telefono_referencia)</td>
-            <td>@Html.DisplayFor(modelItem => item.cargo_id)</td>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                            <td>@Html.DisplayFor(modelItem => item.dui)</td>
                             <td>@(item.disponible ? "Activo" : "Despedido")</td>
                             <td>@Html.DisplayFor(modelItem => item.salario)</td>
-            <td>@Html.DisplayFor(modelItem => item.fecha_contratacion)</td>
-                            <td class="action-links">
+                            <td class="action-links text-center">
                                 <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-edit">Editar</a>
                                 <a asp-action="Details" asp-route-id="@item.id" class="btn btn-details">Detalles</a>
                                 <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-delete">Eliminar</a>
                             </td>
                         </tr>
-                        }
-                 </tbody>
+                    }
+                </tbody>
             </table>
         </div>
     </div>
+
 </body>
 </html>
