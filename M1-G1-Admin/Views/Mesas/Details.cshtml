@@ -4,33 +4,77 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
 
-<div>
-    <h4>Mesa</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.numero_asientos)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.numero_asientos)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.numero_mesa)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.numero_mesa)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.estado_mesa)
-        </dt>
-        <dd class = "col-sm-10">
-            <td>@(Model.estado_mesa.HasValue ? (Model.estado_mesa.Value ? "Disponible" : "Ocupada") : "No disponible")</td>
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+        .container {
+            margin-top: 50px;
+        }
+
+        .details-container {
+            background-color: #222;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .back-link {
+            margin-top: 20px;
+            display: block;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="details-container">
+                    <h1 class="text-center mb-4">Details</h1>
+                    <div>
+                        <h4>Mesa</h4>
+                        <hr />
+                        <dl class="row">
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.numero_asientos)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.numero_asientos)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.numero_mesa)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.numero_mesa)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.estado_mesa)
+                            </dt>
+                            <dd class="col-sm-10">
+                                <td>@(Model.estado_mesa.HasValue ? (Model.estado_mesa.Value ? "Disponible" : "Ocupada") : "No disponible")</td>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div>
+                        <a asp-action="Edit" asp-route-id="@Model?.id" class="mr-2">Edit</a> |
+                        <a asp-action="Index" class="back-link">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoF" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+cg6Lvb3cbv9/9Wraf61zZMLJmCCMwp5Pb+iqOvya2lsF9b7hCiN5Xr6jJ" crossorigin="anonymous"></script>
+</body>
+</html>

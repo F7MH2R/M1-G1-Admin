@@ -4,90 +4,128 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
 
-<h4>Empleado</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="id" />
-            <div class="form-group">
-                <label asp-for="nombre" class="control-label"></label>
-                <input asp-for="nombre" class="form-control" />
-                <span asp-validation-for="nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="dui" class="control-label"></label>
-                <input asp-for="dui" class="form-control" />
-                <span asp-validation-for="dui" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="fecha_nacimiento" class="control-label"></label>
-                <input asp-for="fecha_nacimiento" class="form-control" />
-                <span asp-validation-for="fecha_nacimiento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="telefono" class="control-label"></label>
-                <input asp-for="telefono" class="form-control" />
-                <span asp-validation-for="telefono" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="direccion" class="control-label"></label>
-                <input asp-for="direccion" class="form-control" />
-                <span asp-validation-for="direccion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="telefono_referencia" class="control-label"></label>
-                <input asp-for="telefono_referencia" class="form-control" />
-                <span asp-validation-for="telefono_referencia" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="cargo_id" class="control-label">Cargo</label>
-                <select asp-for="cargo_id" class="form-control">
-                    <option value="">Selecciona un cargo</option>
-                    @foreach (var cargo in ViewBag.Cargos)
-                    {
-                        <option value="@cargo.id_cargo">@cargo.tipo_cargo</option>
-                    }
-                </select>
-                <span asp-validation-for="cargo_id" class="text-danger"></span>
-            </div>
+        .container {
+            margin-top: 50px;
+        }
 
+        .edit-container {
+            background-color: #333;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
 
-            <div class="form-group">
-                <label asp-for="salario" class="control-label"></label>
-                <input asp-for="salario" class="form-control" />
-                <span asp-validation-for="salario" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="fecha_contratacion" class="control-label"></label>
-                <input asp-for="fecha_contratacion" class="form-control" />
-                <span asp-validation-for="fecha_contratacion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Disponible</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" asp-for="disponible" value="true" />
-                    <label class="form-check-label">Activo</label>
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-check-input {
+            margin-right: 10px;
+        }
+
+        .btn-primary {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="edit-container">
+                    <h1 class="text-center mb-4">Editar Empleado</h1>
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="id" />
+                        <div class="form-group">
+                            <label asp-for="nombre" class="control-label">Nombre</label>
+                            <input asp-for="nombre" class="form-control" />
+                            <span asp-validation-for="nombre" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="dui" class="control-label">DUI</label>
+                            <input asp-for="dui" class="form-control" />
+                            <span asp-validation-for="dui" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="fecha_nacimiento" class="control-label">Fecha de Nacimiento</label>
+                            <input asp-for="fecha_nacimiento" class="form-control" />
+                            <span asp-validation-for="fecha_nacimiento" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="telefono" class="control-label">Teléfono</label>
+                            <input asp-for="telefono" class="form-control" />
+                            <span asp-validation-for="telefono" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="direccion" class="control-label">Dirección</label>
+                            <input asp-for="direccion" class="form-control" />
+                            <span asp-validation-for="direccion" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="telefono_referencia" class="control-label">Teléfono de Referencia</label>
+                            <input asp-for="telefono_referencia" class="form-control" />
+                            <span asp-validation-for="telefono_referencia" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="cargo_id" class="control-label">Cargo</label>
+                            <select asp-for="cargo_id" class="form-control">
+                                <option value="">Selecciona un cargo</option>
+                                @foreach (var cargo in ViewBag.Cargos)
+                                {
+                                    <option value="@cargo.id_cargo">@cargo.tipo_cargo</option>
+                                }
+                            </select>
+                            <span asp-validation-for="cargo_id" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="salario" class="control-label">Salario</label>
+                            <input asp-for="salario" class="form-control" />
+                            <span asp-validation-for="salario" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="fecha_contratacion" class="control-label">Fecha de Contratación</label>
+                            <input asp-for="fecha_contratacion" class="form-control" />
+                            <span asp-validation-for="fecha_contratacion" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Estado</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" asp-for="disponible" value="true" />
+                                <label class="form-check-label">Activo</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" asp-for="disponible" value="false" />
+                                <label class="form-check-label">Despedido</label>
+                            </div>
+                            <span asp-validation-for="disponible" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Guardar" class="btn btn-primary" />
+                        </div>
+                    </form>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" asp-for="disponible" value="false" />
-                    <label class="form-check-label">Despedido</label>
-                </div>
-                <span asp-validation-for="disponible" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoF" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+cg6Lvb3cbv9/9Wraf61zZMLJmCCMwp5Pb+iqOvya2lsF9b7hCiN5Xr6jJ" crossorigin="anonymous"></script>
+</body>
+</html>
 
 @section Scripts {
     @{
